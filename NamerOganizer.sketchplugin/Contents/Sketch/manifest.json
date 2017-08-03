@@ -1,0 +1,39 @@
+{
+	"name"       : "🖌 Name Organizer",
+	"commands"   : [
+		{
+			"name"      : "Sort Artboards",
+			"script"    : "script.cocoascript",
+			"handler"  : "sortArtboards",
+			"identifier": "sortArtboards",
+			"shortcut"  : "ctrl alt cmd e"
+		},
+		{
+			"name"      : "Sort Artboards Without Numbers",
+			"script"    : "script.cocoascript",
+			"handler"  : "removeNumber",
+			"identifier": "removeNumber",
+			"shortcut"  : ""
+		},
+		{
+			"name"      : "Rename Layers",
+			"script"    : "script.cocoascript",
+			"handler"  : "renameAll",
+			"identifier": "renameAll",
+			"shortcut"  : ""
+		}
+	],
+	"menu": {
+		"items": [
+			"sortArtboards",
+			"removeNumber",
+			"renameAll"
+		]
+	},
+	"identifier" : "cm.sketch.nameorganizer",
+	"version"    : "1.0",
+	"description": "Rename artboards based on their x and y position; Rename layers based on their Style and Symbol",
+	"author"     : "Canis Minor",
+	"authorEmail": "i@canisminor.cc",
+	"homepage"   : "https://github.com/canisminor1990/sketch-name-organizer"
+}
