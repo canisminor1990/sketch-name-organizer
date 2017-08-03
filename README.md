@@ -11,5 +11,5 @@
 </a>
 
 ## Contact
-- Author [canisminor1990](https://github.com/canisminor1990)
-- Email <canisminor1990@gmail.com>
+- Author [Canis Minor](https://github.com/canisminor1990)
+- Email <i@canisminor.cc>
