@@ -10,11 +10,14 @@
   <img src="http://sketchrunner.com/img/badge_white.png" width="160">
 </a>
 
-- Name Format:
+## Name Format
+
+- **Input**
 ```
->>>input
 data display / Cell/01
->>>output
+```
+- **Output**
+```
 DataDisplay / Cell / 01
 ```
 
