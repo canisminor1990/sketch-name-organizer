@@ -21,6 +21,12 @@ data display / Cell/01
 DataDisplay / Cell / 01
 ```
 
+## Preview
+
+![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_1.png)
+
+![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_2.png)
+
 ## Contact
 - **Author** - [Canis Minor](https://github.com/canisminor1990)
 - **Email** - <i@canisminor.cc>
