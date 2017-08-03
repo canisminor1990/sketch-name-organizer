@@ -11,5 +11,6 @@
 </a>
 
 ## Contact
-- Author [Canis Minor](https://github.com/canisminor1990)
-- Email <i@canisminor.cc>
+- **Author** - [Canis Minor](https://github.com/canisminor1990)
+- **Email** - <i@canisminor.cc>
+- **QQ** - 40073838
