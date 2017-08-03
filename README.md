@@ -10,6 +10,14 @@
   <img src="http://sketchrunner.com/img/badge_white.png" width="160">
 </a>
 
+- Name Format:
+```
+>>>input
+data display / Cell/01
+>>>output
+DataDisplay / Cell / 01
+```
+
 ## Contact
 - **Author** - [Canis Minor](https://github.com/canisminor1990)
 - **Email** - <i@canisminor.cc>
