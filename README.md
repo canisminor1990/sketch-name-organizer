@@ -23,9 +23,15 @@ DataDisplay / Cell / 01
 
 ## Preview
 
+- **Sort Artboards**
+
 ![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_1.png)
 
 ![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_2.png)
+
+- **Rename Layers**
+
+![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_3.png)
 
 ## Contact
 - **Author** - [Canis Minor](https://github.com/canisminor1990)
