@@ -12,9 +12,10 @@
   <img src="http://sketchrunner.com/img/badge_white.png" width="160">
 </a>
 
-## Download
+## Installing Plugins
 
-[Click Here](https://github.com/canisminor1990/sketch-name-organizer/releases)
+1. [Download the ZIP file](https://github.com/canisminor1990/sketch-name-organizer/archive/master.zip) and unzip
+2. Open the `NameOrganizer.sketchplugin`
 
 ## Preview
 
