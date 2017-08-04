@@ -8,10 +8,6 @@
 - **Sort Artboards Without Numbers** - 排序画板，但不加数字前缀
 - **Rename Layers** - 美化图层名，并根据图层所应用的文字、图层样式，或所隶属的symbol重名图层（全局）
 
-<a href="http://bit.ly/SketchRunnerWebsite">
-  <img src="http://sketchrunner.com/img/badge_white.png" width="160">
-</a>
-
 ## 安装方法
 
 ### 直接下载
