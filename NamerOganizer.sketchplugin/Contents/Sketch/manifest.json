@@ -1,5 +1,6 @@
 {
 	"name"       : "🖌 Name Organizer",
+	"description": "Rename artboards based on their x and y position; Rename layers based on their Style and Symbol",
 	"commands"   : [
 		{
 			"name"      : "Sort Artboards",
@@ -30,9 +31,9 @@
 			"renameAll"
 		]
 	},
-	"identifier" : "cm.sketch.nameorganizer",
 	"version"    : "1.0",
-	"description": "Rename artboards based on their x and y position; Rename layers based on their Style and Symbol",
+	"identifier" : "cm.sketch.nameorganizer",
+	"icon"       : "https://o4j4l4n7h.qnssl.com/2017-08-04-NamerOganizer-Icon.png",
 	"author"     : "Canis Minor",
 	"authorEmail": "i@canisminor.cc",
 	"homepage"   : "https://github.com/canisminor1990/sketch-name-organizer"
