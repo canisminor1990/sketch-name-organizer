@@ -36,4 +36,3 @@ DataDisplay / Cell / 01
 ## Contact
 - **Author** - [Canis Minor](https://github.com/canisminor1990)
 - **Email** - <i@canisminor.cc>
-- **QQ** - 40073838
