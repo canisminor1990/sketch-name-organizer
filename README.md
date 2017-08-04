@@ -1,5 +1,7 @@
 # Name Organizer
 
+![](https://badges.sketchpacks.com/plugins/cm.sketch.nameorganizer/version.svg)
+
 <img src="https://o4j4l4n7h.qnssl.com/2017-08-03-cover.png" width="500">
 
 - **Sort Artboards** - Rename artboards based on their x and y position, then sort them.
