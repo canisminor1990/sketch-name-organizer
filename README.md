@@ -14,20 +14,23 @@
 
 ### Sort Artboards
 
+Add number prefixs to artboards based on their x and y positon (with format like 01:ArtboardsName),
+then sort the artboards 01->99.
+
 ![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_1.png)
 
 ![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_2.png)
 
-> Add number prefixs to artboards based on their x and y positon (with format like 01:ArtboardsName),
-> then sort the artboards 01->99.
 
 ### Rename Layers
 
+Rename all layers based on their Style, TextStyle or MasterSymbol and format them.
+
 ![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_3.png)
 
-> Rename all layers based on their Style, TextStyle or MasterSymbol and format them.
-
 ### Name Format
+
+Format the name string with Camel-Case and beautify the spacing
 
 - **Input**
 ```
