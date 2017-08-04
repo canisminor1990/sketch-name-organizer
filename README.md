@@ -14,8 +14,23 @@
 
 ## Installing Plugins
 
+### Direct download
+
 1. [Download the ZIP file](https://github.com/canisminor1990/sketch-name-organizer/archive/master.zip) and unzip
 2. Open the `NameOrganizer.sketchplugin`
+
+### Install with Sketchpacks
+
+<a href="https://sketchpacks.com/canisminor1990/sketch-name-organizer/install"><img src="https://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png" alt="Install sketch-name-organizer with Sketchpacks" width="160"></a>
+
+### Install with Runner
+
+1. Press `⌘` + `'` open Runner window;
+2. Switch to `install` tab;
+3. Type `NameOrganizer`;
+4. Select `Name Organizer` item and press `Return`.
+
+<a href="http://bit.ly/SketchRunnerWebsite"><img src="http://bit.ly/RunnerBadgeBlue" alt="Works with Sketch Runner" width="160"></a>
 
 ## Preview
 
