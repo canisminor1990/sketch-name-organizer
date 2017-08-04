@@ -8,10 +8,6 @@
 - **Sort Artboards Without Numbers** - Sort artboards without add number prefix.
 - **Rename Layers** - Rename all layers based on their Style, TextStyle or MasterSymbol.
 
-<a href="http://bit.ly/SketchRunnerWebsite">
-  <img src="http://sketchrunner.com/img/badge_white.png" width="160">
-</a>
-
 ## Installing Plugins
 
 ### Direct download
