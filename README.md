@@ -10,6 +10,8 @@
   <img src="http://sketchrunner.com/img/badge_white.png" width="160">
 </a>
 
+- **Download** - [Click Here](https://github.com/canisminor1990/sketch-name-organizer/releases)
+
 ## Preview
 
 ### Sort Artboards
