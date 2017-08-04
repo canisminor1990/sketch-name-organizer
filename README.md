@@ -12,7 +12,7 @@
 
 ## Preview
 
-- **Sort Artboards**
+### Sort Artboards
 
 ![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_1.png)
 
@@ -21,13 +21,13 @@
 > Add number prefixs to artboards based on their x and y positon (with format like 01:ArtboardsName),
 > then sort the artboards 01->99.
 
-- **Rename Layers**
+### Rename Layers
 
 ![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_3.png)
 
 > Rename all layers based on their Style, TextStyle or MasterSymbol and format them.
 
-## Name Format
+### Name Format
 
 - **Input**
 ```
