@@ -35,5 +35,6 @@
 	"description": "Rename artboards based on their x and y position; Rename layers based on their Style and Symbol",
 	"author"     : "Canis Minor",
 	"authorEmail": "i@canisminor.cc",
-	"homepage"   : "https://github.com/canisminor1990/sketch-name-organizer"
+	"homepage"   : "https://github.com/canisminor1990/sketch-name-organizer",
+	"appcast": "https://api.sketchpacks.com/v1/plugins/cm.sketch.nameorganizer/appcast"
 }
