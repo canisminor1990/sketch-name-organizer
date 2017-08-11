@@ -1,6 +1,6 @@
 {
 	"name": "sketch-name-oganizer",
-	"version": "1.0.1",
+	"version": "2.0.1",
 	"description": "Rename and sort artboards based on their x and y position; Rename layers based on their Style and Symbol.",
 	"main": "NameOganizer.sketchplugin",
 	"scripts": {

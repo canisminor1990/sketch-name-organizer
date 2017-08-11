@@ -1,36 +1,46 @@
 {
-	"name": "🖌 Name Organizer",
-	"identifier": "cm.sketch.nameorganizer",
+	"name"             : "🖌 Name Organizer",
+	"identifier"       : "cm.sketch.nameorganizer",
 	"compatibleVersion": 3,
-	"bundleVersion": 1,
-	"commands": [
+	"bundleVersion"    : 1,
+	"commands"         : [
 		{
-			"name": "Sort Artboards",
-			"script": "index.js",
-			"handler": "sortArtboards",
+			"name"      : "Name Organizer",
+			"script"    : "index.js",
+			"handler"   : "panel",
+			"identifier": "panel",
+			"shortcut"  : "ctrl cmd n",
+			"icon"      : "assets/icon.png"
+		},
+		{
+			"name"      : "Sort Artboards",
+			"script"    : "index.js",
+			"handler"   : "sortArtboards",
 			"identifier": "sortArtboards",
-			"shortcut": "ctrl alt cmd e",
-			"icon": "assets/icon.png"
+			"shortcut"  : "",
+			"icon"      : "assets/icon.png"
 		},
 		{
-			"name": "Sort Artboards Without Numbers",
-			"script": "index.js",
-			"handler": "removeNumber",
+			"name"      : "Sort Artboards Without Numbers",
+			"script"    : "index.js",
+			"handler"   : "removeNumber",
 			"identifier": "removeNumber",
-			"shortcut": "",
-			"icon": "assets/icon.png"
+			"shortcut"  : "",
+			"icon"      : "assets/icon.png"
 		},
 		{
-			"name": "Rename Layers",
-			"script": "index.js",
-			"handler": "renameAll",
+			"name"      : "Rename Layers",
+			"script"    : "index.js",
+			"handler"   : "renameAll",
 			"identifier": "renameAll",
-			"shortcut": "",
-			"icon": "assets/icon.png"
+			"shortcut"  : "",
+			"icon"      : "assets/icon.png"
 		}
 	],
-	"menu": {
+	"menu"             : {
 		"items": [
+			"panel",
+			"-",
 			"sortArtboards",
 			"removeNumber",
 			"renameAll"

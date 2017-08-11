@@ -5,35 +5,48 @@
   "bundleVersion": 1,
   "commands": [
     {
+      "name": "Name Organizer",
+      "script": "index.js",
+      "handler": "panel",
+      "identifier": "panel",
+      "shortcut": "ctrl cmd n",
+      "icon": "assets/icon.png"
+    },
+    {
       "name": "Sort Artboards",
       "script": "index.js",
       "handler": "sortArtboards",
       "identifier": "sortArtboards",
-      "shortcut": "ctrl alt cmd e"
+      "shortcut": "",
+      "icon": "assets/icon.png"
     },
     {
       "name": "Sort Artboards Without Numbers",
       "script": "index.js",
       "handler": "removeNumber",
       "identifier": "removeNumber",
-      "shortcut": ""
+      "shortcut": "",
+      "icon": "assets/icon.png"
     },
     {
       "name": "Rename Layers",
       "script": "index.js",
       "handler": "renameAll",
       "identifier": "renameAll",
-      "shortcut": ""
+      "shortcut": "",
+      "icon": "assets/icon.png"
     }
   ],
   "menu": {
     "items": [
+      "panel",
+      "-",
       "sortArtboards",
       "removeNumber",
       "renameAll"
     ]
   },
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Rename and sort artboards based on their x and y position; Rename layers based on their Style and Symbol.",
   "homepage": "https://github.com/canisminor1990/sketch-name-oganizer",
   "disableCocoaScriptPreprocessor": true,

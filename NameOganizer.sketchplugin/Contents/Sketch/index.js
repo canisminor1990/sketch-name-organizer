@@ -65,28 +65,11 @@ var exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.renameAll = exports.removeNumber = exports.sortArtboards = undefined;
-
-var _sortArtboards = __webpack_require__(2);
-
-var _renameAll = __webpack_require__(4);
-
-exports.sortArtboards = _sortArtboards.sortArtboards;
-exports.removeNumber = _sortArtboards.removeNumber;
-exports.renameAll = _renameAll.renameAll;
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -111,15 +94,89 @@ function upperCase(name) {
 }
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.renameAll = exports.removeNumber = exports.sortArtboards = exports.panel = undefined;
+
+var _sortArtboards = __webpack_require__(2);
+
+var _renameAll = __webpack_require__(4);
+
+var _sketchModuleWebView = __webpack_require__(5);
+
+var _sketchModuleWebView2 = _interopRequireDefault(_sketchModuleWebView);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var panel = function panel(context) {
+	var sketch = context.api();
+	var webUI = new _sketchModuleWebView2['default'](context, 'panel/index.html', {
+		identifier: 'name-organizer',
+		x: 0,
+		y: 0,
+		width: 340,
+		height: 532,
+		onlyShowCloseButton: true,
+		background: hexToNSColor('83FFBB'),
+		title: ' ',
+		hideTitleBar: false,
+		shouldKeepAround: true,
+		handlers: {
+			onClick: function () {
+				function onClick(callback) {
+					try {
+						var config = JSON.parse(callback);
+						(0, _sortArtboards.sortArtboards)(context, config.PrefixNum, config.Order);
+						if (config.Rename.length > 0) (0, _renameAll.renameAll)(context, config.Rename);
+					} catch (e) {
+						sketch.alert(e, 'Debug');
+					}
+				}
+
+				return onClick;
+			}(),
+			openWeb: function () {
+				function openWeb(url) {
+					NSWorkspace.sharedWorkspace().openURL(NSURL.URLWithString(url));
+				}
+
+				return openWeb;
+			}()
+		}
+	});
+};
+
+function hexToNSColor(hex) {
+	var r = parseInt(hex.substring(0, 2), 16) / 255,
+	    g = parseInt(hex.substring(2, 4), 16) / 255,
+	    b = parseInt(hex.substring(4, 6), 16) / 255,
+	    a = 1;
+	return NSColor.colorWithRed_green_blue_alpha(r, g, b, a);
+}
+
+var removeNumber = function removeNumber(context) {
+	return (0, _sortArtboards.sortArtboards)(context, false);
+};
+
+exports.panel = panel;
+exports.sortArtboards = _sortArtboards.sortArtboards;
+exports.removeNumber = removeNumber;
+exports.renameAll = _renameAll.renameAll;
+
+/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.removeNumber = exports.sortArtboards = undefined;
+exports.sortArtboards = undefined;
 
-var _rename = __webpack_require__(1);
+var _rename = __webpack_require__(0);
 
 var _rename2 = _interopRequireDefault(_rename);
 
@@ -130,7 +187,8 @@ var _sort2 = _interopRequireDefault(_sort);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var sortArtboards = function sortArtboards(context) {
-	var ifNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+	var PrefixNum = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+	var Order = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
 
 	var sketch = context.api();
@@ -163,23 +221,18 @@ var sortArtboards = function sortArtboards(context) {
 	}
 	sketch.message('\uD83D\uDD8C Rename & Sort: ' + String(i) + ' Artboards');
 	try {
-		(0, _sort2['default'])(context);
+		(0, _sort2['default'])(context, !Order);
 	} catch (e) {
 		sketch.alert(e, 'Debug');
 	}
-	if (!ifNumber) {
+	if (!PrefixNum) {
 		for (var i = 0; i < pageArtboards.count(); i++) {
 			pageArtboards[i].setName(removeNum(pageArtboards[i].name().toString()));
 		}
 	}
 };
 
-var removeNumber = function removeNumber(context) {
-	sortArtboards(context, false);
-};
-
 exports.sortArtboards = sortArtboards;
-exports.removeNumber = removeNumber;
 
 /***/ }),
 /* 3 */
@@ -247,25 +300,45 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.renameAll = undefined;
 
-var _rename = __webpack_require__(1);
+var _rename = __webpack_require__(0);
 
 var _rename2 = _interopRequireDefault(_rename);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var renameAll = function renameAll(context) {
+	var cb = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ['SymbolInstance', 'TextStyle', 'LayerStyle'];
+
 	var sketch = context.api();
 	var doc = context.document;
 	var pages = doc.pages();
-	for (var i = 0; i < pages.count(); i++) {
-		renameInstanceRecursive(pages.objectAtIndex(i));
+	var Option = {
+		SymbolInstance: ifExist(cb, 'SymbolInstance'),
+		TextStyle: ifExist(cb, 'TextStyle'),
+		LayerStyle: ifExist(cb, 'LayerStyle')
+	};
+
+	if (Option.SymbolInstance) {
+		for (var i = 0; i < pages.count(); i++) {
+			renameInstanceRecursive(pages.objectAtIndex(i));
+		}
 	}
-	renameStyleLayer(context);
-	sketch.message("🖌 Rename Done!");
+	var pages_loop = pages.objectEnumerator();
+
+	while (page = pages_loop.nextObject()) {
+		var artboards = page.artboards();
+		var artboards_loop = artboards.objectEnumerator();
+		while (artboard = artboards_loop.nextObject()) {
+			if (Option.TextStyle) renameLayers(artboard.layers(), doc.documentData().layerTextStyles());
+			if (Option.LayerStyle) renameLayers(artboard.layers(), doc.documentData().layerStyles());
+		}
+	}
+
+	sketch.message('🖌 Rename Done!');
 };
 
 var renameInstanceRecursive = function renameInstanceRecursive(selected) {
-	selected.setName((0, _rename2["default"])(selected.name().toString()));
+	selected.setName((0, _rename2['default'])(selected.name().toString()));
 	if (selected instanceof MSSymbolInstance && selected.name() != selected.symbolMaster().name().trim()) {
 		selected.setName(selected.symbolMaster().name());
 		updateCount++;
@@ -279,37 +352,22 @@ var renameInstanceRecursive = function renameInstanceRecursive(selected) {
 	} catch (e) {}
 };
 
-var renameStyleLayer = function renameStyleLayer(context) {
-	var document = context.document;
-	var pages = document.pages();
-	var pages_loop = pages.objectEnumerator();
-
-	while (page = pages_loop.nextObject()) {
-		var artboards = page.artboards();
-		var artboards_loop = artboards.objectEnumerator();
-		while (artboard = artboards_loop.nextObject()) {
-			renameLayers(artboard.layers(), document.documentData().layerTextStyles());
-			renameLayers(artboard.layers(), document.documentData().layerStyles());
-		}
-	}
-};
-
 var renameLayers = function renameLayers(layers, document) {
 	processLayers(layers, function (layer) {
 		var sharedStyleID = layer.style().sharedObjectID();
 		var allStyles = document.objects();
 
-		var styleSearchPredicate = NSPredicate.predicateWithFormat("objectID == %@", sharedStyleID);
+		var styleSearchPredicate = NSPredicate.predicateWithFormat('objectID == %@', sharedStyleID);
 		var filteredStyles = allStyles.filteredArrayUsingPredicate(styleSearchPredicate);
 
-		if (filteredStyles.length) layer.setName((0, _rename2["default"])(filteredStyles[0].name()));
+		if (filteredStyles.length) layer.setName((0, _rename2['default'])(filteredStyles[0].name()));
 	});
 };
 
 var processLayers = function processLayers(layers, callback) {
 	for (var i = 0; i < layers.count(); i++) {
 		var layer = layers.objectAtIndex(i);
-		if (layer["class"]() == "MSLayerGroup") {
+		if (layer['class']() == 'MSLayerGroup') {
 			processLayers(layer.layers(), callback);
 		} else {
 			try {
@@ -319,7 +377,202 @@ var processLayers = function processLayers(layers, callback) {
 	}
 };
 
+function ifExist(array, word) {
+	return array.indexOf(word) >= 0;
+}
+
 exports.renameAll = renameAll;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* globals NSUUID NSThread NSPanel NSMakeRect NSTexturedBackgroundWindowMask NSTitledWindowMask NSClosableWindowMask NSColor NSWindowMiniaturizeButton NSWindowZoomButton NSFloatingWindowLevel WebView COScript */
+var MochaJSDelegate = __webpack_require__(6)
+var parseQuery = __webpack_require__(7)
+
+var coScript = COScript.currentCOScript()
+
+var LOCATION_CHANGED = 'webView:didChangeLocationWithinPageForFrame:'
+
+function WebUI (context, htmlName, options) {
+  // ColorPicker main window
+  var identifier = options.identifier || NSUUID.UUID().UUIDString()
+  var threadDictionary = NSThread.mainThread().threadDictionary()
+  var backgroundColor = options.background || NSColor.whiteColor()
+  var panel = threadDictionary[identifier] ? threadDictionary[identifier] : NSPanel.alloc().init()
+
+  // Window size
+  panel.setFrame_display(NSMakeRect(
+    options.x || 0,
+    options.y || 0,
+    options.width || 240,
+    options.height || 180
+  ), true)
+
+  panel.setStyleMask(options.styleMask || (NSTexturedBackgroundWindowMask | NSTitledWindowMask | NSClosableWindowMask))
+  panel.setBackgroundColor(backgroundColor)
+
+  if (options.onlyShowCloseButton) {
+    panel.standardWindowButton(NSWindowMiniaturizeButton).setHidden(true)
+    panel.standardWindowButton(NSWindowZoomButton).setHidden(true)
+  }
+
+  // Titlebar
+  panel.setTitle(options.title || context.plugin.name())
+  if (options.hideTitleBar) {
+    panel.setTitlebarAppearsTransparent(true)
+  }
+
+  panel.becomeKeyWindow()
+  panel.setLevel(NSFloatingWindowLevel)
+
+  threadDictionary[identifier] = panel
+
+  if (options.shouldKeepAround !== false) { // Long-running script
+    coScript.setShouldKeepAround(true)
+  }
+
+  // Add Web View to window
+  var webView = WebView.alloc().initWithFrame(NSMakeRect(
+    0,
+    options.hideTitleBar ? -24 : 0,
+    options.width || 240,
+    (options.height || 180) - (options.hideTitleBar ? 0 : 24)
+  ))
+
+  if (options.frameLoadDelegate || options.handlers) {
+    var handlers = options.frameLoadDelegate || {}
+    if (options.handlers) {
+      var lastQueryId
+      handlers[LOCATION_CHANGED] = function (webview, frame) {
+        var query = webview.windowScriptObject().evaluateWebScript('window.location.hash')
+        query = parseQuery(query)
+        if (query.pluginAction && query.actionId && query.actionId !== lastQueryId && query.pluginAction in options.handlers) {
+          lastQueryId = query.actionId
+          try {
+            query.pluginArgs = JSON.parse(query.pluginArgs)
+          } catch (err) {}
+          options.handlers[query.pluginAction].apply(context, query.pluginArgs)
+        }
+      }
+    }
+    var frameLoadDelegate = new MochaJSDelegate(handlers)
+    webView.setFrameLoadDelegate_(frameLoadDelegate.getClassInstance())
+  }
+  if (options.uiDelegate) {
+    var uiDelegate = new MochaJSDelegate(options.uiDelegate)
+    webView.setUIDelegate_(uiDelegate.getClassInstance())
+  }
+
+  webView.setOpaque(true)
+  webView.setBackgroundColor(backgroundColor)
+  webView.setMainFrameURL_(context.plugin.urlForResourceNamed(htmlName).path())
+
+  panel.contentView().addSubview(webView)
+  panel.center()
+  panel.makeKeyAndOrderFront(null)
+
+  return {
+    panel: panel,
+    eval: webView.stringByEvaluatingJavaScriptFromString,
+    webView: webView
+  }
+}
+
+WebUI.clean = function () {
+  coScript.setShouldKeepAround(false)
+}
+
+module.exports = WebUI
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+/* globals NSUUID MOClassDescription NSObject NSSelectorFromString NSClassFromString */
+
+module.exports = function (selectorHandlerDict, superclass) {
+  var uniqueClassName = 'MochaJSDelegate_DynamicClass_' + NSUUID.UUID().UUIDString()
+
+  var delegateClassDesc = MOClassDescription.allocateDescriptionForClassWithName_superclass_(uniqueClassName, superclass || NSObject)
+
+  delegateClassDesc.registerClass()
+
+  // Storage Handlers
+  var handlers = {}
+
+  // Define interface
+  this.setHandlerForSelector = function (selectorString, func) {
+    var handlerHasBeenSet = (selectorString in handlers)
+    var selector = NSSelectorFromString(selectorString)
+
+    handlers[selectorString] = func
+
+    /*
+      For some reason, Mocha acts weird about arguments: https://github.com/logancollins/Mocha/issues/28
+      We have to basically create a dynamic handler with a likewise dynamic number of predefined arguments.
+    */
+    if (!handlerHasBeenSet) {
+      var args = []
+      var regex = /:/g
+      while (regex.exec(selectorString)) {
+        args.push('arg' + args.length)
+      }
+
+      var dynamicFunction = eval('(function (' + args.join(', ') + ') { return handlers[selectorString].apply(this, arguments); })')
+
+      delegateClassDesc.addInstanceMethodWithSelector_function_(selector, dynamicFunction)
+    }
+  }
+
+  this.removeHandlerForSelector = function (selectorString) {
+    delete handlers[selectorString]
+  }
+
+  this.getHandlerForSelector = function (selectorString) {
+    return handlers[selectorString]
+  }
+
+  this.getAllHandlers = function () {
+    return handlers
+  }
+
+  this.getClass = function () {
+    return NSClassFromString(uniqueClassName)
+  }
+
+  this.getClassInstance = function () {
+    return NSClassFromString(uniqueClassName).new()
+  }
+
+  // Convenience
+  if (typeof selectorHandlerDict === 'object') {
+    for (var selectorString in selectorHandlerDict) {
+      this.setHandlerForSelector(selectorString, selectorHandlerDict[selectorString])
+    }
+  }
+}
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = function (query) {
+  query = query.split('?')[1]
+  if (!query) { return }
+  query = query.split('&').reduce(function (prev, s) {
+    var res = s.split('=')
+    if (res.length === 2) {
+      prev[decodeURIComponent(res[0])] = decodeURIComponent(res[1])
+    }
+    return prev
+  }, {})
+  return query
+}
+
 
 /***/ })
 /******/ ]);
@@ -329,7 +582,8 @@ exports.renameAll = renameAll;
     exports[key](context);
   }
 }
-that['sortArtboards'] = run.bind(this, 'sortArtboards');
+that['panel'] = run.bind(this, 'panel');
 that['onRun'] = run.bind(this, 'default');
+that['sortArtboards'] = run.bind(this, 'sortArtboards');
 that['removeNumber'] = run.bind(this, 'removeNumber');
 that['renameAll'] = run.bind(this, 'renameAll')
