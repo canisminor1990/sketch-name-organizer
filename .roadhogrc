@@ -2,7 +2,7 @@
 	"entry": "./src/Resources/panel/index.js",
 	"public": "./src/public",
 	"disableCSSModules": true,
-	"outputPath": "./NameOganizer.sketchplugin/Contents/Resources/panel",
+	"outputPath": "./NameOrganizer.sketchplugin/Contents/Resources/panel",
 	"extraBabelPlugins": [
 		"transform-runtime",
 		"lodash",

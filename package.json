@@ -1,8 +1,8 @@
 {
-	"name": "sketch-name-oganizer",
+	"name": "sketch-name-organizer",
 	"version": "2.0.1",
 	"description": "Rename and sort artboards based on their x and y position; Rename layers based on their Style and Symbol.",
-	"main": "NameOganizer.sketchplugin",
+	"main": "NameOrganizer.sketchplugin",
 	"scripts": {
 		"test": "roadhog server",
 		"build": "roadhog build && skpm build",
@@ -11,15 +11,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/canisminor1990/sketch-name-oganizer.git"
+		"url": "git+https://github.com/canisminor1990/sketch-name-organizer.git"
 	},
 	"author": "Canis Minor",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/canisminor1990/sketch-name-oganizer/issues"
+		"url": "https://github.com/canisminor1990/sketch-name-organizer/issues"
 	},
-	"homepage": "https://github.com/canisminor1990/sketch-name-oganizer",
-	"appcast": "https://raw.githubusercontent.com/canisminor1990/sketch-name-oganizer/master/.appcast.xml",
+	"homepage": "https://github.com/canisminor1990/sketch-name-organizer",
+	"appcast": "https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/.appcast.xml",
 	"engines": {
 		"sketch": ">=3.0"
 	},
@@ -33,7 +33,7 @@
 	},
 	"skpm": {
 		"manifest": "src/Sketch/manifest.json",
-		"main": "NameOganizer.sketchplugin"
+		"main": "NameOrganizer.sketchplugin"
 	},
 	"dependencies": {
 		"antd": "^2.12.5",

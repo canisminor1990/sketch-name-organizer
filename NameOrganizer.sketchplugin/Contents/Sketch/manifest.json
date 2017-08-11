@@ -48,8 +48,8 @@
   },
   "version": "2.0.1",
   "description": "Rename and sort artboards based on their x and y position; Rename layers based on their Style and Symbol.",
-  "homepage": "https://github.com/canisminor1990/sketch-name-oganizer",
+  "homepage": "https://github.com/canisminor1990/sketch-name-organizer",
   "disableCocoaScriptPreprocessor": true,
-  "appcast": "https://raw.githubusercontent.com/canisminor1990/sketch-name-oganizer/master/.appcast.xml",
+  "appcast": "https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/.appcast.xml",
   "author": "Canis Minor"
 }
