@@ -34,7 +34,7 @@
 
 ## Usage
 
-### Select layers
+### Name Organizer
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-dialog.png" width="344">
 
