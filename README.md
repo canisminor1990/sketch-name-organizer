@@ -43,6 +43,14 @@ Press <kbd>Command</kbd> + <kbd>⌘</kbd> + <kbd>N</kbd> on keyboard to callout 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-shortkey.png" width="344">
 
 
+### Run with Runner
+
+1. Press <kbd>⌘</kbd> + <kbd>'</kbd> open Runner window;
+2. Type `name`;
+
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-run.png" width="344">
+
+
 ### Sort Artboards
 
 Add number prefixs to artboards based on their x and y positon (with format like 01:ArtboardsName),
@@ -63,12 +71,6 @@ Rename all layers based on their Style, TextStyle or MasterSymbol and format the
 
 Format the name string with Camel-Case and beautify the spacing
 
-### Run with Runner
-
-1. Press <kbd>⌘</kbd> + <kbd>'</kbd> open Runner window;
-2. Type `Select`;
-
-<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-run.png" width="344">
 
 - **Input**
 ```
