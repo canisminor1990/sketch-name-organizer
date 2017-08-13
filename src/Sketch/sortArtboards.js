@@ -1,21 +1,21 @@
 import rename from './utitls/rename';
 import sortAll from './utitls/sort';
 const sortArtboards = (context, PrefixNum = true, Order = true) => {
-
+	
 	let sketch        = context.api();
 	let doc           = context.document;
 	let artboards     = Array();
 	let pageArtboards = doc.currentPage().artboards();
-
+	
 	const removeNum = (name) => name.replace(/[0-9]+\:/, '');
-
+	
 	for (var i = 0; i < pageArtboards.count(); i++) {
 		artboards[i] = pageArtboards[i];
 	}
-
+	
 	artboards.sort((a, b) => a.frame().x() - b.frame().x());
 	artboards.sort((a, b) => a.frame().y() - b.frame().y());
-
+	
 	for (let i = 0; i < pageArtboards.count(); i++) {
 		let oldName = artboards[i].name().toString();
 		oldName     = removeNum(oldName);

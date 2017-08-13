@@ -1,5 +1,5 @@
-import { sortArtboards } from './sortArtboards';
-import { renameAll } from './renameAll';
+import {sortArtboards} from './sortArtboards';
+import {renameAll} from './renameAll';
 import WebUI from 'sketch-module-web-view';
 
 const panel = (context) => {
@@ -19,8 +19,13 @@ const panel = (context) => {
 			onClick: (callback) => {
 				try {
 					let config = JSON.parse(callback);
-					sortArtboards(context, config.PrefixNum, config.Order);
-					if (config.Rename.length > 0) renameAll(context, config.Rename);
+					sortArtboards(context, config.PrefixNum, config.Order, config.Format);
+					if (config.Rename.length > 0) {
+						// fix symbol delay
+						renameAll(context, config.Rename, config.Format)
+						renameAll(context, config.Rename, config.Format)
+					}
+					;
 				} catch (e) {
 					sketch.alert(e, 'Debug');
 				}

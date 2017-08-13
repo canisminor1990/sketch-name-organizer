@@ -77,9 +77,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports['default'] = function (layerName) {
-	var name = layerName.split(' ');
-	name = upperCase(name).join('').replace(/ /g, "").split('/');
-	return upperCase(name).join(' / ');
+	var Format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+	var name = layerName.replace(/\-(\w)/g, function (all, letter) {
+		return letter.toUpperCase();
+	});
+	name = upperCase(name.split(' ')).join('').replace(/ /g, "").split('/');
+	if (Format) {
+		return upperCase(name).join(' / ');
+	} else {
+		return upperCase(name).join(' / ').replace(/([A-Z])/g, "-$1").toLowerCase().replace(/^\-/, "").replace(/\:\-/g, ":").replace(/ \-/g, " ");
+	}
 };
 
 function upperCase(name) {
@@ -130,8 +138,13 @@ var panel = function panel(context) {
 				function onClick(callback) {
 					try {
 						var config = JSON.parse(callback);
-						(0, _sortArtboards.sortArtboards)(context, config.PrefixNum, config.Order);
-						if (config.Rename.length > 0) (0, _renameAll.renameAll)(context, config.Rename);
+						(0, _sortArtboards.sortArtboards)(context, config.PrefixNum, config.Order, config.Format);
+						if (config.Rename.length > 0) {
+							// fix symbol delay
+							(0, _renameAll.renameAll)(context, config.Rename, config.Format);
+							(0, _renameAll.renameAll)(context, config.Rename, config.Format);
+						}
+						;
 					} catch (e) {
 						sketch.alert(e, 'Debug');
 					}
@@ -307,20 +320,21 @@ var _rename2 = _interopRequireDefault(_rename);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var renameAll = function renameAll(context) {
-	var cb = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ['SymbolInstance', 'TextStyle', 'LayerStyle'];
+	var Rename = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ['SymbolInstance', 'TextStyle', 'LayerStyle'];
+	var Format = arguments[2];
 
 	var sketch = context.api();
 	var doc = context.document;
 	var pages = doc.pages();
 	var Option = {
-		SymbolInstance: ifExist(cb, 'SymbolInstance'),
-		TextStyle: ifExist(cb, 'TextStyle'),
-		LayerStyle: ifExist(cb, 'LayerStyle')
+		SymbolInstance: ifExist(Rename, 'SymbolInstance'),
+		TextStyle: ifExist(Rename, 'TextStyle'),
+		LayerStyle: ifExist(Rename, 'LayerStyle')
 	};
 
 	if (Option.SymbolInstance) {
 		for (var i = 0; i < pages.count(); i++) {
-			renameInstanceRecursive(pages.objectAtIndex(i));
+			renameInstanceRecursive(pages.objectAtIndex(i), Format);
 		}
 	}
 	var pages_loop = pages.objectEnumerator();
@@ -329,16 +343,16 @@ var renameAll = function renameAll(context) {
 		var artboards = page.artboards();
 		var artboards_loop = artboards.objectEnumerator();
 		while (artboard = artboards_loop.nextObject()) {
-			if (Option.TextStyle) renameLayers(artboard.layers(), doc.documentData().layerTextStyles());
-			if (Option.LayerStyle) renameLayers(artboard.layers(), doc.documentData().layerStyles());
+			if (Option.TextStyle) renameLayers(artboard.layers(), doc.documentData().layerTextStyles(), Format);
+			if (Option.LayerStyle) renameLayers(artboard.layers(), doc.documentData().layerStyles(), Format);
 		}
 	}
 
 	sketch.message('🖌 Rename Done!');
 };
 
-var renameInstanceRecursive = function renameInstanceRecursive(selected) {
-	selected.setName((0, _rename2['default'])(selected.name().toString()));
+var renameInstanceRecursive = function renameInstanceRecursive(selected, Format) {
+	selected.setName((0, _rename2['default'])(selected.name().toString(), Format));
 	if (selected instanceof MSSymbolInstance && selected.name() != selected.symbolMaster().name().trim()) {
 		selected.setName(selected.symbolMaster().name());
 		updateCount++;
@@ -347,12 +361,12 @@ var renameInstanceRecursive = function renameInstanceRecursive(selected) {
 	try {
 		var children = selected.layers();
 		for (var i = 0; i < children.length; i++) {
-			renameInstanceRecursive(children.objectAtIndex(i));
+			renameInstanceRecursive(children.objectAtIndex(i), Format);
 		}
 	} catch (e) {}
 };
 
-var renameLayers = function renameLayers(layers, document) {
+var renameLayers = function renameLayers(layers, document, Format) {
 	processLayers(layers, function (layer) {
 		var sharedStyleID = layer.style().sharedObjectID();
 		var allStyles = document.objects();
@@ -360,7 +374,7 @@ var renameLayers = function renameLayers(layers, document) {
 		var styleSearchPredicate = NSPredicate.predicateWithFormat('objectID == %@', sharedStyleID);
 		var filteredStyles = allStyles.filteredArrayUsingPredicate(styleSearchPredicate);
 
-		if (filteredStyles.length) layer.setName((0, _rename2['default'])(filteredStyles[0].name()));
+		if (filteredStyles.length) layer.setName((0, _rename2['default'])(filteredStyles[0].name(), Format));
 	});
 };
 

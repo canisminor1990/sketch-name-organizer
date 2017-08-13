@@ -30,7 +30,7 @@
 3. Type `NameOrganizer`;
 4. Select `Name Organizer` item and press `Return`.
 
-<a href="http://bit.ly/SketchRunnerWebsite"><img src="http://bit.ly/RunnerBadgeBlue" alt="Works with Sketch Runner" width="160"></a>
+<a href="http://bit.ly/SketchRunnerWebsite"><img src="http://bit.ly/RunnerBadgeBlue" alt="Works with Sketch Runner" width=""></a>
 
 ## Usage
 
@@ -48,16 +48,16 @@ Press <kbd>⌃</kbd> + <kbd>⌘</kbd> + <kbd>N</kbd> on keyboard to callout the 
 Add number prefixs to artboards based on their x and y positon (with format like 01:ArtboardsName),
 then sort the artboards 01->99.
 
-![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_1.png)
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage01.png" width="640">
 
-![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_2.png)
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage02.png" width="640">
 
 
 ### Rename Layers
 
 Rename all layers based on their Style, TextStyle or MasterSymbol and format them.
 
-![](https://o4j4l4n7h.qnssl.com/2017-08-03-a_3.png)
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage03.png" width="640">
 
 ### Name Format
 
