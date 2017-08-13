@@ -30,7 +30,7 @@
 3. Type `NameOrganizer`;
 4. Select `Name Organizer` item and press `Return`.
 
-<a href="http://bit.ly/SketchRunnerWebsite"><img src="http://bit.ly/RunnerBadgeBlue" alt="Works with Sketch Runner" width=""></a>
+<a href="http://bit.ly/SketchRunnerWebsite"><img src="http://bit.ly/RunnerBadgeBlue" width="160"></a>
 
 ## Usage
 
