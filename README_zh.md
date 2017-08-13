@@ -1,8 +1,9 @@
 # Name Organizer
 
-![](https://badges.sketchpacks.com/plugins/cm.sketch.nameorganizer/version.svg)
+[![GitHub release](https://img.shields.io/github/release/canisminor1990/sketch-name-organizer.svg?maxAge=2592000)](https://github.com/canisminor1990/sketch-name-organizer/releases) 
+[![GitHub release](https://img.shields.io/badge/Works%20with-Sketch%20Runner-blue.svg?colorB=308ADF)](http://bit.ly/SketchRunnerWebsite)
 
-<img src="https://o4j4l4n7h.qnssl.com/2017-08-03-cover.png" width="500">
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-banner.png" width="520">
 
 - **Sort Artboards** - 按画板所在的x,y坐标给画板排序，并给画板加上顺序前缀
 - **Sort Artboards Without Numbers** - 排序画板，但不加数字前缀
@@ -21,14 +22,22 @@
 
 ### 使用 Runner 安装
 
-1. `⌘` + `'` 打开 Runner;
+1. <kbd>⌘</kbd> + <kbd>'</kbd> 打开 Runner;
 2. 切换至 `install` 标签;
 3. 输入 `NameOrganizer`;
 4. 选择 `Name Organizer` 并回车.
 
-<a href="http://bit.ly/SketchRunnerWebsite"><img src="http://bit.ly/RunnerBadgeBlue" alt="Works with Sketch Runner" width="160"></a>
+<a href="http://sketchrunner.com/"><img src="http://bit.ly/RunnerBadgeBlue" width="160"></a>
 
 ## 示范
+
+### Name Organizer
+
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-dialog.png" width="344">
+
+使用 <kbd>⌃</kbd> + <kbd>⌘</kbd> + <kbd>N</kbd> 打开插件弹窗
+
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-shortkey.png" width="344">
 
 ### Sort Artboards
 
@@ -49,6 +58,13 @@
 ### Name Format
 
 使用驼峰命名化美化图层名，并处理好空格
+
+### 使用Runner开启
+
+1.<kbd>⌘</kbd> + <kbd>'</kbd> 打开Runner;
+2. 输入 `name`;
+
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-run.png" width="344">
 
 - **Input**
 ```

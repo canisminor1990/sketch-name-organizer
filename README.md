@@ -38,7 +38,7 @@
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-dialog.png" width="344">
 
-Press <kbd>Command</kbd> + <kbd>⌘</kbd> + <kbd>N</kbd> on keyboard to callout the plugin dialog.
+Press <kbd>⌃</kbd> + <kbd>⌘</kbd> + <kbd>N</kbd> on keyboard to callout the plugin dialog.
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-shortkey.png" width="344">
 
