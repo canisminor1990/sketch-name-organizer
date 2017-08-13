@@ -48,16 +48,16 @@ Press <kbd>⌃</kbd> + <kbd>⌘</kbd> + <kbd>N</kbd> on keyboard to callout the 
 Add number prefixs to artboards based on their x and y positon (with format like 01:ArtboardsName),
 then sort the artboards 01->99.
 
-<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage01.png" width="640">
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage01.png" width="720">
 
-<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage02.png" width="640">
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage02.png" width="720">
 
 
 ### Rename Layers
 
 Rename all layers based on their Style, TextStyle or MasterSymbol and format them.
 
-<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage03.png" width="640">
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage03.png" width="720">
 
 ### Name Format
 

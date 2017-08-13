@@ -44,16 +44,16 @@
 按画板所在的x,y坐标给画板排序，并给画板加上顺序前缀 (格式为 01:图层名),
 然后按顺序重新排列画板
 
-<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage01.png" width="640">
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage01.png" width="720">
 
-<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage02.png" width="640">
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage02.png" width="720">
 
 
 ### Rename Layers
 
 美化图层名，并根据图层所应用的文字、图层样式，或所隶属的symbol重名图层（全局）
 
-<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage03.png" width="640">
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-usage03.png" width="720">
 
 ### Name Format
 
