@@ -14,7 +14,7 @@
 ### 直接下载
 
 1. [下载ZIP包](https://github.com/canisminor1990/sketch-name-organizer/archive/master.zip) 解压
-2. 打开 `NameOrganizer.sketchplugin` 即可自动安装
+2. 打开 **NameOrganizer.sketchplugin** 即可自动安装
 
 ### 使用 Sketchpacks 安装
 
@@ -22,10 +22,10 @@
 
 ### 使用 Runner 安装
 
-1. <kbd>⌘</kbd> + <kbd>'</kbd> 打开 Runner;
-2. 切换至 `install` 标签;
-3. 输入 `NameOrganizer`;
-4. 选择 `Name Organizer` 并回车.
+1. <kbd>⌘</kbd> + <kbd>'</kbd> 打开 **Runner**;
+2. 切换至 **install** 标签;
+3. 输入 **NameOrganizer**;
+4. 选择 **Name Organizer** 并 <kbd>回车</kbd>.
 
 <a href="http://sketchrunner.com/"><img src="http://bit.ly/RunnerBadgeBlue" width="160"></a>
 
@@ -61,8 +61,8 @@
 
 ### 使用Runner开启
 
-1.<kbd>⌘</kbd> + <kbd>'</kbd> 打开Runner;
-2. 输入 `name`;
+1.<kbd>⌘</kbd> + <kbd>'</kbd> 打开 **Runner**;
+2. 输入 **name**;
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-run.png" width="344">
 

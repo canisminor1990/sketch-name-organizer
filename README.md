@@ -17,7 +17,7 @@
 ### Direct download
 
 1. [Download the ZIP file](https://github.com/canisminor1990/sketch-name-organizer/archive/master.zip) and unzip
-2. Open the `NameOrganizer.sketchplugin`
+2. Open the **NameOrganizer.sketchplugin**
 
 ### Install with Sketchpacks
 
@@ -25,10 +25,10 @@
 
 ### Install with Runner
 
-1. Press <kbd>⌘</kbd> + <kbd>'</kbd> open Runner window;
-2. Switch to `install` tab;
-3. Type `NameOrganizer`;
-4. Select `Name Organizer` item and press `Return`.
+1. Press <kbd>⌘</kbd> + <kbd>'</kbd> open **Runner** window;
+2. Switch to **install** tab;
+3. Type **NameOrganizer**;
+4. Select **Name Organizer** item and press <kbd>Return</kbd>.
 
 <a href="http://bit.ly/SketchRunnerWebsite"><img src="http://bit.ly/RunnerBadgeBlue" width="160"></a>
 
@@ -65,8 +65,8 @@ Format the name string with Camel-Case and beautify the spacing
 
 ### Run with Runner
 
-1. Press <kbd>⌘</kbd> + <kbd>'</kbd> open Runner window;
-2. Type `name`;
+1. Press <kbd>⌘</kbd> + <kbd>'</kbd> open **Runner** window;
+2. Type **name**;
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/src/Img/rm-run.png" width="344">
 
