@@ -140,8 +140,7 @@ var panel = function panel(context) {
 						var config = JSON.parse(callback);
 						(0, _sortArtboards.sortArtboards)(context, config.PrefixNum, config.Order, config.Format);
 						if (config.Rename.length > 0) {
-							// fix symbol delay
-							(0, _renameAll.renameAll)(context, config.Rename, config.Format);
+
 							(0, _renameAll.renameAll)(context, config.Rename, config.Format);
 						}
 						;
@@ -332,17 +331,13 @@ var renameAll = function renameAll(context) {
 		LayerStyle: ifExist(Rename, 'LayerStyle')
 	};
 
-	if (Option.SymbolInstance) {
-		for (var i = 0; i < pages.count(); i++) {
-			renameInstanceRecursive(pages.objectAtIndex(i), Format);
-		}
-	}
 	var pages_loop = pages.objectEnumerator();
 
 	while (page = pages_loop.nextObject()) {
 		var artboards = page.artboards();
 		var artboards_loop = artboards.objectEnumerator();
 		while (artboard = artboards_loop.nextObject()) {
+			if (Option.SymbolInstance) renameInstanceRecursive(artboard.layers(), Format);
 			if (Option.TextStyle) renameLayers(artboard.layers(), doc.documentData().layerTextStyles(), Format);
 			if (Option.LayerStyle) renameLayers(artboard.layers(), doc.documentData().layerStyles(), Format);
 		}
@@ -351,19 +346,12 @@ var renameAll = function renameAll(context) {
 	sketch.message('🖌 Rename Done!');
 };
 
-var renameInstanceRecursive = function renameInstanceRecursive(selected, Format) {
-	selected.setName((0, _rename2['default'])(selected.name().toString(), Format));
-	if (selected instanceof MSSymbolInstance && selected.name() != selected.symbolMaster().name().trim()) {
-		selected.setName(selected.symbolMaster().name());
-		updateCount++;
-		return;
-	}
-	try {
-		var children = selected.layers();
-		for (var i = 0; i < children.length; i++) {
-			renameInstanceRecursive(children.objectAtIndex(i), Format);
-		}
-	} catch (e) {}
+var renameInstanceRecursive = function renameInstanceRecursive(layers, Format) {
+	processLayers(layers, function (layer) {
+		try {
+			layer.setName((0, _rename2['default'])(layer.symbolMaster().name(), Format));
+		} catch (e) {}
+	});
 };
 
 var renameLayers = function renameLayers(layers, document, Format) {

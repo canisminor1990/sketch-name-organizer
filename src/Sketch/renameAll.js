@@ -14,17 +14,13 @@ const renameAll = (context,
 		LayerStyle    : ifExist(Rename, 'LayerStyle')
 	};
 	
-	if (Option.SymbolInstance) {
-		for (var i = 0; i < pages.count(); i++) {
-			renameInstanceRecursive(pages.objectAtIndex(i), Format);
-		}
-	}
 	let pages_loop = pages.objectEnumerator();
 	
 	while (page = pages_loop.nextObject()) {
 		let artboards      = page.artboards();
 		let artboards_loop = artboards.objectEnumerator();
 		while (artboard = artboards_loop.nextObject()) {
+			if (Option.SymbolInstance) renameInstanceRecursive(artboard.layers(), Format);
 			if (Option.TextStyle) renameLayers(artboard.layers(), doc.documentData().layerTextStyles(), Format);
 			if (Option.LayerStyle) renameLayers(artboard.layers(), doc.documentData().layerStyles(), Format);
 		}
@@ -33,21 +29,13 @@ const renameAll = (context,
 	sketch.message('🖌 Rename Done!');
 };
 
-const renameInstanceRecursive = (selected, Format) => {
-	selected.setName(rename(selected.name().toString(), Format));
-	if (selected instanceof MSSymbolInstance &&
-		selected.name() != selected.symbolMaster().name().trim()) {
-		selected.setName(selected.symbolMaster().name());
-		updateCount++;
-		return;
-	}
-	try {
-		var children = selected.layers();
-		for (var i = 0; i < children.length; i++) {
-			renameInstanceRecursive(children.objectAtIndex(i), Format);
+const renameInstanceRecursive = (layers, Format) => {
+	processLayers(layers, layer => {
+		try {
+			layer.setName(rename(layer.symbolMaster().name(), Format));
+		} catch (e) {
 		}
-	} catch (e) {
-	}
+	});
 };
 
 const renameLayers = (layers, document, Format) => {

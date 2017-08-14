@@ -21,8 +21,7 @@ const panel = (context) => {
 					let config = JSON.parse(callback);
 					sortArtboards(context, config.PrefixNum, config.Order, config.Format);
 					if (config.Rename.length > 0) {
-						// fix symbol delay
-						renameAll(context, config.Rename, config.Format)
+					
 						renameAll(context, config.Rename, config.Format)
 					}
 					;
