@@ -1,0 +1,22 @@
+{
+	"name": "Name Organizer",
+	"identifier": "cm.sketch.nameorganizer",
+	"compatibleVersion": 3,
+	"bundleVersion": 1,
+	"icon": "icon.png",
+	"commands": [{
+		"commands": [{
+			"name"      : "🖌 Name Organizer",
+			"script"    : "index.js",
+			"identifier": "name-organizer",
+			"shortcut"  : "ctrl cmd n"
+		}]
+	}],
+	"menu": {
+		"title": "Name Organizer",
+		"isRoot": true,
+		"items": [
+			"name-organizer"
+		]
+	}
+}
