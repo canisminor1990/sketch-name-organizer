@@ -1,7 +1,8 @@
 # Name Organizer
 
-[![GitHub release](https://img.shields.io/github/release/canisminor1990/sketch-name-organizer.svg?maxAge=2592000)](https://github.com/canisminor1990/sketch-name-organizer/releases)
+[![GitHub release](https://img.shields.io/github/release/canisminor1990/sketch-name-organizer.svg)](https://github.com/canisminor1990/sketch-name-organizer/releases)
 [![GitHub release](https://img.shields.io/badge/Works%20with-Sketch%20Runner-blue.svg?colorB=308ADF)](http://bit.ly/SketchRunnerWebsite)
+[![](https://img.shields.io/github/downloads/canisminor1990/sketch-name-organizer/total.svg)](https://github.com/canisminor1990/sketch-name-organizer/releases)
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-banner.png" width="520">
 
