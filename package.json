@@ -1,6 +1,6 @@
 {
 	"name": "sketch-name-organizer",
-	"version": "",
+	"version": "3.0.0",
 	"description": "Rename and sort artboards based on their x and y position; Rename layers based on their Style and Symbol.",
 	"repository": {
 		"type": "git",
