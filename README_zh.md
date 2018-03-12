@@ -35,10 +35,57 @@
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-shortkey.png" width="344">
 
+### Rename Layers
+
+格式化/美化图层名.
+
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-usage03.png" width="720">
+
+### Name Format
+
+* CamelCase
+
+```
+Foo Bar => FooBar
+--for-bar-- => FooBar
+__FOO_BAR__ => FooBar
+```
+
+* camelCase
+
+```
+Foo Bar => fooBar
+--for-bar-- => fooBar
+__FOO_BAR__ => fooBar
+```
+
+* kebab-case
+
+```
+Foo Bar => foo-bar
+FooBar => foo-bar
+__FOO_BAR__ => foo-bar
+```
+
+* snake_case
+
+```
+Foo Bar => foo_bar
+--for-bar-- => foo_bar
+FooBar => foo_bar
+```
+
+* Start Case
+
+```
+FooBar => Foo Bar
+--for-bar-- => Foo Bar
+__FOO_BAR__ => Foo Bar
+```
+
 ### Sort Artboards
 
-按画板所在的 x,y 坐标给画板排序，并给画板加上顺序前缀 (格式为 01:图层名),
-然后按顺序重新排列画板
+按画板所在的 x,y 坐标给画板排序.
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-usage01.png" width="720">
 
@@ -49,10 +96,6 @@
 美化图层名，并根据图层所应用的文字、图层样式，或所隶属的 symbol 重名图层（全局）
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-usage03.png" width="720">
-
-### Name Format
-
-使用驼峰命名化美化图层名，并处理好空格
 
 ### 使用 Runner 开启
 

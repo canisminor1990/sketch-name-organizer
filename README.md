@@ -37,15 +37,6 @@ Press <kbd>⌃</kbd> + <kbd>⌘</kbd> + <kbd>N</kbd> on keyboard to callout the 
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-shortkey.png" width="344">
 
-### Sort Artboards
-
-Add number prefixs to artboards based on their x and y positon (with format like 01:ArtboardsName),
-then sort the artboards 01->99.
-
-<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-usage01.png" width="720">
-
-<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-usage02.png" width="720">
-
 ### Rename Layers
 
 Rename all layers based on their Style, TextStyle or MasterSymbol and format them.
@@ -54,7 +45,53 @@ Rename all layers based on their Style, TextStyle or MasterSymbol and format the
 
 ### Name Format
 
-Format the name string with Camel-Case and beautify the spacing
+* CamelCase
+
+```
+Foo Bar => FooBar
+--for-bar-- => FooBar
+__FOO_BAR__ => FooBar
+```
+
+* camelCase
+
+```
+Foo Bar => fooBar
+--for-bar-- => fooBar
+__FOO_BAR__ => fooBar
+```
+
+* kebab-case
+
+```
+Foo Bar => foo-bar
+FooBar => foo-bar
+__FOO_BAR__ => foo-bar
+```
+
+* snake_case
+
+```
+Foo Bar => foo_bar
+--for-bar-- => foo_bar
+FooBar => foo_bar
+```
+
+* Start Case
+
+```
+FooBar => Foo Bar
+--for-bar-- => Foo Bar
+__FOO_BAR__ => Foo Bar
+```
+
+### Sort Artboards
+
+Sort artboards based on their x and y positon.
+
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-usage01.png" width="720">
+
+<img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-usage02.png" width="720">
 
 ### Run with Runner
 
