@@ -1,45 +1,28 @@
-const Checked = type => ({
-  [type]: '',
-  [`${type}Checked`]: false,
-});
-const Switch = type => ({
-  [`${type}Switch`]: false,
-});
-
 const defaultConfig = {
-  ...Switch('global'),
-  ...Checked('type'),
-  ...Checked('name'),
-  ...Checked('id'),
-  // rect
-  ...Checked('x'),
-  ...Checked('y'),
-  ...Checked('width'),
-  ...Checked('height'),
-  // text
-  ...Checked('text'),
-  ...Switch('textReg'),
-  ...Checked('alignment'),
-  ...Checked('lineSpacing'),
-  ...Checked('fixedWidth'),
-  // shape
-  ...Checked('fillColor'),
-  ...Checked('fillType'),
-  ...Checked('borderColor'),
-  ...Checked('borderThickness'),
-  // symbol
-  ...Checked('symbolId'),
-  // other
-  ...Switch('exportable'),
-  ...Switch('hide'),
-  ...Switch('lock'),
+  // rename
+  renameSwitch: true,
+  format: 'CamelCase',
+  handleSymbolChecked: true,
+  spaceChecked: true,
+  // reorder
+  reorderSwitch: true,
+  // sort
+  sortSwitch: true,
+  marginX: 50,
+  marginY: 100,
+  // addNum
+  addNumChecked: true,
+  addNum: ' | ',
 };
+
+const saveConfig = JSON.parse(localStorage.getItem('config'));
+
 export default {
   namespace: 'config',
 
   state: {
-    page: 'Any',
     ...defaultConfig,
+    ...saveConfig,
   },
 
   reducers: {

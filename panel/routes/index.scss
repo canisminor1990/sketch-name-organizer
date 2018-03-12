@@ -1,4 +1,4 @@
-$c-primary: #32d1ff;
+$c-primary: #83ffbb;
 @import 'scroll';
 :global {
   @import 'reset';
@@ -13,14 +13,15 @@ $c-primary: #32d1ff;
   padding: 1rem;
 }
 
-.view .container {
+.container {
   width: 100vw;
-  height: calc(100vh - 320px);
-  padding: 0.5rem 1rem 1rem;
-  overflow-x: hidden;
+  height: calc(100vh - 240px);
+  padding: 1rem;
   overflow-y: auto;
-  border: none !important;
-  background: transparent;
+  -webkit-overflow-scrolling: touch;
+  > div {
+    margin: 0.5rem 0 1rem;
+  }
 }
 .btnGroup {
   display: flex;
@@ -41,9 +42,9 @@ $c-primary: #32d1ff;
   background: linear-gradient(
     45deg,
     $c-primary,
-    lighten($c-primary, 16%)
+    lighten($c-primary, 8%)
   ) !important;
-  box-shadow: 0 4px 24px rgba($c-primary, 0.25);
+  box-shadow: 0 4px 24px rgba($c-primary, 0.4);
 }
 .resetBtn {
   border-radius: 2rem;
@@ -59,7 +60,7 @@ $c-primary: #32d1ff;
   bottom: 0;
   left: 0;
   width: 100vw;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
   background: #fff;
   box-shadow: 0 -4px 16px rgba(#000, 0.05);
 }
@@ -67,4 +68,10 @@ $c-primary: #32d1ff;
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid #eee;
+}
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.5rem 0 1rem;
 }

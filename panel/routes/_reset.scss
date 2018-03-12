@@ -28,26 +28,25 @@
   border: none !important;
 }
 .ant-collapse-content {
+  overflow: visible !important;
   border: none !important;
   padding: 0 !important;
 }
-.ant-checkbox-wrapper {
-  .ant-input {
-    border-radius: 2rem !important;
-    border-color: #eee;
+.ant-input {
+  border-radius: 2rem !important;
+  border-color: #eee;
 
-    width: 60% !important;
-  }
-  .ant-input-group-addon {
-    background: #fff;
-    border: none;
-  }
-
-  .ant-input-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  width: 60% !important;
+}
+.ant-input-group-addon {
+  background: #fff;
+  border: none;
+  padding: 0;
+}
+.ant-input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .ant-tabs-bar {
   margin-bottom: 0;

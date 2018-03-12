@@ -1,7 +1,20 @@
-.globalSwitch {
+.small {
   display: flex;
-  align-items: center;
-  > span {
-    margin-right: 0.5rem;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  > .title {
+    font-size: 0.95rem;
+    color: #222;
+    font-weight: 600;
+    &:after {
+      content: '#';
+      color: #e3e3e3;
+      margin-left: 0.5rem;
+    }
   }
 }

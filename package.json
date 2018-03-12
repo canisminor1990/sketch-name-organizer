@@ -31,13 +31,14 @@
 	"appcast": "https://raw.githubusercontent.com/canisminor1990/sketch-name-organize/master/.appcast.xml",
 	"scripts": {
 		"start": "concurrently \"yarn start:panel\" \"yarn start:plugin\"",
-		"start:plugin": "cross-env NODE_ENV=development skpm-build --watch --run",
+		"start:plugin": "yarn dev && cross-env NODE_ENV=development skpm-build --watch",
 		"start:panel": "roadhog dev",
 		"build": "yarn build:panel && yarn build:plugin",
 		"build:plugin": "cross-env NODE_ENV=production skpm-build",
 		"build:panel": "roadhog build",
 		"publish": "skpm publish",
 		"link": "skpm-link",
+		"dev": "defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES",
 		"lint": "lint-staged",
 		"lint:es": "eslint --fix --ext .js ./"
 	},

@@ -1,0 +1,29 @@
+{
+  "name": "Name Organizer",
+  "identifier": "cm.sketch.nameorganizer",
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "🖌 Name Organizer",
+      "script": "index.js",
+      "identifier": "name-organizer",
+      "shortcut": "ctrl cmd n"
+    }
+  ],
+  "menu": {
+    "title": "Name Organizer",
+    "isRoot": true,
+    "items": [
+      "name-organizer"
+    ]
+  },
+  "version": "3.0.0",
+  "description": "Rename and sort artboards based on their x and y position; Rename layers based on their Style and Symbol.",
+  "homepage": "https://github.com/canisminor1990/sketch-name-organize",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com/canisminor1990/sketch-name-organize/master/.appcast.xml",
+  "author": "CanisMinor",
+  "authorEmail": "i@canisminor.cc"
+}

@@ -7,7 +7,7 @@ export default {
 		includePaths: ['node_modules', 'panel/style']
 	},
 	theme             : {
-		'@primary-color': '#32d1ff'
+		'@primary-color': '#83FFBB'
 	},
 	html              : {
 		'template': './panel/index.ejs'

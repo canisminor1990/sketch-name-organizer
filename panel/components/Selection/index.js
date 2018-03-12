@@ -4,7 +4,7 @@ import style from './index.scss';
 
 const State = ({ config }) => ({ config });
 
-const Selection = ({ dispatch, config, title, type }) => {
+const Selection = ({ dispatch, config, title, type, noSelect, noInput }) => {
   const update = (data, type = 'config') => {
     dispatch({ type: `${type}/update`, payload: data });
   };
@@ -17,15 +17,27 @@ const Selection = ({ dispatch, config, title, type }) => {
     update({ [type]: value }, 'config');
   };
 
-  return (
-    <Checkbox
-      className={style.selection}
-      checked={config[`${type}Checked`]}
-      onChange={e => onCheck(e, type)}
-    >
-      <Input addonBefore={title} value={config[type]} onChange={e => onInputChange(e, type)} />
-    </Checkbox>
-  );
+  if (noSelect) {
+    return (
+      <div className={style.selection}>
+        <Input addonBefore={title} value={config[type]} onChange={e => onInputChange(e, type)} />
+      </div>
+    );
+  } else {
+    return (
+      <Checkbox
+        className={style.selection}
+        checked={config[`${type}Checked`]}
+        onChange={e => onCheck(e, type)}
+      >
+        {noInput ? (
+          <span className={style.desc}>{title}</span>
+        ) : (
+          <Input addonBefore={title} value={config[type]} onChange={e => onInputChange(e, type)} />
+        )}
+      </Checkbox>
+    );
+  }
 };
 
 export default connect(State)(Selection);

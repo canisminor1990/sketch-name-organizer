@@ -4,7 +4,7 @@ import style from './index.scss';
 
 const State = ({ config }) => ({ config });
 
-const Switchbox = ({ dispatch, config, title, type }) => {
+const Switchbox = ({ dispatch, config, title, type, size }) => {
   const update = (data, type = 'config') => {
     dispatch({ type: `${type}/update`, payload: data });
   };
@@ -13,9 +13,9 @@ const Switchbox = ({ dispatch, config, title, type }) => {
   };
 
   return (
-    <div className={style.globalSwitch}>
-      <Switch checked={config[`${type}Switch`]} size="small" onChange={e => onSwitch(e, type)} />
-      <span>{title}</span>
+    <div className={size === 'small' ? style.small : style.header}>
+      <span className={style.title}>{title}</span>
+      <Switch checked={config[`${type}Switch`]} size={size} onChange={e => onSwitch(e, type)} />
     </div>
   );
 };
