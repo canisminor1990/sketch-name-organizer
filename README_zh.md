@@ -106,17 +106,6 @@ __FOO_BAR__ => Foo Bar
 
 <img src="https://raw.githubusercontent.com/canisminor1990/sketch-name-organizer/master/img/rm-run.png" width="344">
 
-* **Input**
-
-```
-data display / Cell/01
-```
-
-* **Output**
-
-```
-DataDisplay / Cell / 01
-```
 
 ## 反馈方式
 
